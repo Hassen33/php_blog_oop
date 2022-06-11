@@ -1,5 +1,6 @@
 <?php session_start();
 include_once('blog.php');
+
 $o->id=$_SESSION['id'];
 
 if(isset($_POST['btn']))

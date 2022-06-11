@@ -21,7 +21,7 @@ class post
   }
 function recherche()
 {
-    $req="select * from posts where id like '$this->id'";
+    $req="select * from posts where title like '$this->title'";
     $x=mysqli_query($this->cnx,$req);
     if($x)
     return $x;
@@ -32,8 +32,10 @@ function affiche($x)
        while($t=mysqli_fetch_object($x))
     {
         echo 'id :'.$t->id.'<br>';
-        echo 'nom :'.$t->title.'<br>';
+        echo 'title :'.$t->title.'<br>';
         echo 'content :'.$t->content.'<br>';
+        $_SESSION['id']=$t->id;
+        $_SESSION['title']=$t->title;
     }
 }
 
@@ -48,7 +50,7 @@ function sup()
 
 function update()
 {
-    $req=" update posts set nom='$this->title',content$content='$this->content' where
+    $req=" update posts set title='$this->title',content='$this->content' where
      id like '$this->id' ";
      $y=mysqli_query($this->cnx,$req);
      if($y)

@@ -5,13 +5,14 @@
    
     title : <input type="text" name="title"><br>
   
-     <input type="submit" name="btn" value="valider"><br>
+     <input type="submit" name="Search" value="Search"><br>
 
 </form>
 <?php
-if(isset($_POST['btn']))
+if(isset($_POST['Search']))
 {
     include_once('blog.php');
+  
     $o->title=$_POST['title'];
 $x=$o->recherche();
 if($x)
